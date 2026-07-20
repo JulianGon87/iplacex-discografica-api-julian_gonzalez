@@ -5,7 +5,7 @@ COPY . .
 RUN gradle build -x test --no-daemon
 
 # ---------- STAGE 2: run ----------
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/build/libs/discografia-1.war app.war
 EXPOSE 8080
